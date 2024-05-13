@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+</div>
+<body>
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>구입날짜</th>
+      <th>상품명</th>
+      <th>구입수량</th>
+      <th>생산지</th>
+      <th>이미지</th>
+      <th>상품상태</th>
+      <th colspan="2" class="text-center">비고</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="goods:${list}">
+      <td th:text="${goods.buydate}"></td>
+      <td th:text="${goods.goodsname}"></td>
+      <td th:text="${goods.buyqty}"></td>
+      <td th:text="${goods.area}"></td>
+      <td><img th:src="@{/goodsImg/}+${goods.goodsimg}" width="30px" height="50px"></td>
+      <td th:text="${goods.goodsstate}"></td>
+      <td><a th:href="@{/goodsDelete(id=${goods.buynum})}">삭제</a></td>
+      <td><a th:href="@{/goodsUpdate(id=${goods.buynum})}">수정</a></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+</body>
+
+</html>

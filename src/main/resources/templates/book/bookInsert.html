@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+<body>
+<head>
+
+</head>
+
+<div class="container">
+  <form th:action="@{/bookInsert}" method="post" modelAttribute="bookDTO" th:object="${bookDTO}" enctype="multipart/form-data">
+
+    <div class="form-group">
+      <label for="book_num">도서번호</label>
+      <input type="text" class="form-control" id="book_num" name="book_num" readonly="readonly" placeholder="도서 번호는 자동입력 됩니다.">
+
+    </div>
+
+    <div class="form-group">
+      <label for="bookname">도서명</label>
+      <input type="text" class="form-control" id="bookname" name="bookname" list="bookNameList">
+      <datalist id="bookNameList">
+        <option value="마음의 소리">
+        <option value="똑 닮은 딸">
+        <option value="기기괴괴">
+        <option value="존잘주의">
+        <option value="고양이 타타">
+        <option value="여우애담">
+      </datalist>
+    </div>
+
+    <div class="form-group">
+      <label for="author">저자</label>
+      <input type="text" class="form-control" id="author" name="author">
+    </div>
+
+    <div class="form-group">
+      <label for="bookdate">발간일자</label>
+      <input type="date" class="form-control" id="bookdate" name="bookdate">
+    </div>
+
+    <div class="form-group">
+      <label for="contents">내용</label>
+      <textarea class="form-control" id="contents" name="contents" rows="7" cols="5"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="price">가격</label>
+      <input type="text" class="form-control" id="price" name="price">
+    </div>
+
+    <div class="form-group">
+      <label for="file">표지</label>
+      <input type="file" class="form-control" id="file" name="file">
+    </div>
+
+    <button type="submit" class="btn btn-default">저장</button>
+  </form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+</div>
+<body>
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>도서번호</th>
+      <th>도서명</th>
+      <th>저자</th>
+      <th>발간일자</th>
+      <th>가격</th>
+      <th>표지</th>
+      <th>조회수</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr th:each="book:${list}">
+        <td th:text="${book.booknum}"></td>
+        <td><a th:href="@{/bookDetail(booknum=${book.booknum})}" th:text="${book.bookname}"></a></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.bookdate}"></td>
+        <td th:text="${#numbers.formatInteger(book.price, 3, 'COMMA') + '원'}"></td>
+        <td><img th:src="@{/bookImg/}+${book.bookimg}" width="60px" height="60px"></td>
+        <td th:text="${book.views}"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+
+</html>

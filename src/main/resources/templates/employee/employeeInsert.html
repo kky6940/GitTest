@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+<body>
+<head>
+
+</head>
+
+<div class="container">
+  <form th:action="@{/empInsert}" method="post" modelAttribute="employeeDTO" th:object="${employeeDTO}">
+
+    <div class="form-group">
+      <label for="id">아이디</label>
+      <input type="text" class="form-control" id="id" th:field="*{id}">
+      <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+
+    </div>
+
+    <div class="form-group">
+      <label for="pw">패스워드</label>
+      <input type="text" class="form-control" id="pw" name="pw">
+    </div>
+
+    <div class="form-group">
+      <label for="name">이름</label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="tel">전화번호</label>
+      <input type="text" class="form-control" id="tel" name="tel">
+    </div>
+
+    <div class="form-group">
+      <label for="jumin">주민번호</label>
+      <input type="text" class="form-control" id="jumin" name="jumin">
+    </div>
+
+    <div class="form-group">
+      <label for="address">거주지</label>
+      <input type="text" class="form-control" id="address" name="address">
+    </div>
+
+    <div>
+      <label>취미</label>
+      <input type="checkbox" name="hobby" value="여행">여행
+      <input type="checkbox" name="hobby" value="운동">운동
+      <input type="checkbox" name="hobby" value="음악">음악
+      <input type="checkbox" name="hobby" value="맛집">맛집
+      <input type="checkbox" name="hobby" value="드라이브">드라이브
+    </div>
+
+    <button type="submit" class="btn btn-default">저장</button>
+  </form>
+</div>
+</body>
+
+</html>

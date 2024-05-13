@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="header::menu"></div>
+<body>
+<head>
+
+</head>
+
+<div class="container">
+  <form modelAttribute="bookDTO" th:object="${bookDTO}">
+
+    <div class="form-group">
+      <label>도서명</label>
+      <p th:text="${book.bookname}">
+    </div>
+
+    <div class="form-group">
+      <label>내용</label>
+      <p th:text="${book.contents}">
+    </div>
+
+    <div class="form-group">
+      <label>표지</label><br>
+      <img th:src="@{/bookImg/}+${book.bookimg}" width="150px" height="200px">
+    </div>
+
+    <button type="button" class="btn btn-default" onClick="location.href='bookOut'">도서 목록</button>
+  </form>
+</div>
+</body>
+
+</html>
