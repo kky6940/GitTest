@@ -26,7 +26,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/empInsert")
-    public String employee(@ModelAttribute("employeeDTO") EmployeeDTO employeeDTO) {
+    public String employeeInsert(@ModelAttribute("employeeDTO") EmployeeDTO employeeDTO) {
         employeeService.employeeInsert(employeeDTO);
         return "redirect:/empInsert";
     }

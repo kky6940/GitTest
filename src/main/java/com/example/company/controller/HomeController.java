@@ -16,9 +16,4 @@ public class HomeController {
         return "login";
     }
 
-    @GetMapping("/logOut")
-    public String logOutPage(){
-        return "logOut";
-    }
-
 }

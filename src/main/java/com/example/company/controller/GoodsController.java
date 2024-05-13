@@ -51,11 +51,4 @@ public class GoodsController {
         model.addAttribute("list",list);
         return "goods/goodsOut";
     }
-
-    @GetMapping("/goodsSortOutS")
-    public String goodsSortOutS(Model model){
-        List<GoodsInterface> list = goodsService.goodsOut();
-        model.addAttribute("list",list);
-        return "goods/goodsSortOutS";
-    }
 }
